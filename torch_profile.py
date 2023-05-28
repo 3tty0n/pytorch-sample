@@ -69,7 +69,7 @@ def evaluate(N):
     torch.cuda.synchronize()
     elapsed_time = time.time() - all_start
     print(
-        f"with compile total:{elapsed_time:.3e} sec. {batch_size*n_iters/elapsed_time:.3e} imgs/sec."
+        f"with compile total:{elapsed_time:.3e} sec. {batch_size*N/elapsed_time:.3e} imgs/sec."
     )
 
 
