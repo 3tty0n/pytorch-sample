@@ -1,2 +1,7 @@
 #!/bin/sh
+if [ ! -x "$(which nsys)" ]; then
+    echo "NVIDIA Nsight System is not installed in your system"
+    exit 1
+fi
+
 nsys profile -w true -t cuda,nvtx,osrt,cudnn,cublas -s cpu -o nsight_report -f true --cudabacktrace=true -x true $@
