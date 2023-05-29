@@ -27,10 +27,8 @@ compiled_f = torch.compile(f, backend='inductor',
 torch.manual_seed(0)
 
 device = torch.device('cuda')
-# Create a tensor on CPU
 tensor = torch.rand(1000, requires_grad=True)
 
-# Allocate a tensor on GPU
 x_tensor = tensor.to(device)
 y_tensor = torch.ones_like(x_tensor)
 
