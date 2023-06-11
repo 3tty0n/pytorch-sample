@@ -4,4 +4,7 @@ if [ ! -x "$(which nsys)" ]; then
     exit 1
 fi
 
-nsys profile -w true -t cuda,nvtx,osrt,cudnn,cublas -s cpu -o nsight_report -f true --cudabacktrace=true -x true $@
+nsys profile -w true -t cuda,nvtx,osrt,cudnn -s cpu -o nsight_report -f true \
+    --cudabacktrace=true \
+    --cuda-memory-usage=true \
+    -x true $@
